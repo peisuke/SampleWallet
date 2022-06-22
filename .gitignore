@@ -1,0 +1,21 @@
+node_modules/
+.expo/
+.expo-shared/
+dist/
+scripts/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+.env
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
