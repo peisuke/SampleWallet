@@ -25,5 +25,5 @@ ADDRESS_AMM=0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 - Expo環境で以下を実行
 ```
 $ yarn install
-$yarn start
+$ yarn start
 ```
