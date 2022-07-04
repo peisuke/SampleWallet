@@ -31,7 +31,13 @@ function Main({ navigation }) {
       <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center' }}>
         <TouchableOpacity 
             style={[style.button, { width: 300 }]}
-            onPress={() => navigation.navigate('Game')}>
+            onPress={() => {
+              if (Math.random() < 0.2) {
+                navigation.navigate('Game')
+              } else {
+                navigation.navigate('Lose')
+              }
+            }}>
           <Text style={[style.buttonText, {fontSize: 20}]}>Play Game</Text>
         </TouchableOpacity>
       </View>
