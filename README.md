@@ -42,6 +42,10 @@ $ node scripts/add_liquidity.js
 
 ## ウォレットの動かし方
 
+### Expo環境の構築
+
+個人的には[このサイト](https://zenn.dev/kateapp/articles/eda4244b6276a0)の手順を利用
+
 ### Expo環境で以下を実行
 
 ```
