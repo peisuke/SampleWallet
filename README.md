@@ -2,27 +2,48 @@
 
 ## 概要
 
-[AMM](https://github.com/peisuke/AutomatedMarketMaker)を併用してアプリ内ウォレットでトークンのミント・交換・送付を行う。
+[AMM](https://github.com/peisuke/AutomatedMarketMaker/tree/sample_wallet)を併用してアプリ内ウォレットでトークンのミント・交換・送付を行う。
 
 ## 準備
 
-- AMMおよび2種類のトークンをデプロイ
-  - 注意：トークンのうち片方（下記MyCoin側）はユーザがmintできるようにしておく
-  - 上記AMM内のサンプルのトークンであれば、`onlyOwner`を消しておけば良い
-- AMMに流動性を追加する
-  - 追加方法はAMMのサンプル参照
-  
-## ウォレットの動かし方
+### AMMおよび2種類のトークンをデプロイ(ローカル)
 
-- 以下の.envファイルに、ノードのアドレス、トークンのアドレス、AMMのアドレスを設定
+```
+$ git clone https://github.com/peisuke/AutomatedMarketMaker -b sample_wallet
+$ cd AutomatedMarketMaker
+$ npm install
+$ npx hardhat node --hostname 0.0.0.0
+
+# 別のターミナルを開く
+$ npx hardhat compile
+$ npx hardhat run scripts/deploy.js --network localhost
+```
+
+### 環境変数を設定
+
 ```
 HTTP_PROVIDER=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-ADDRESS_FAKEJPYC=0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ADDRESS_FAKEJPYC=0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX (上記コントラクトデプロイ時に表示されるアドレスを入力)
 ADDRESS_MYCOIN=0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ADDRESS_AMM=0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+OWNER_ADDRESS=0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX (上記ノード立ち上げ時に表示される先頭のアドレスとキーを入力)
+PRIVATE_KEY=0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-- Expo環境で以下を実行
+### AMMに流動性を追加
+
+```
+$ git clone https://github.com/peisuke/SampleWallet.git
+$ cd SampleWallet
+$ npm install
+$ node scripts/mint.js
+$ node scripts/add_liquidity.js
+```  
+
+## ウォレットの動かし方
+
+### Expo環境で以下を実行
+
 ```
 $ yarn install
 $ yarn start
